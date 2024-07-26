@@ -11,7 +11,7 @@ import voluptuous as vol
 
 from homeassistant.components.light import (
     ATTR_BRIGHTNESS, ATTR_COLOR_TEMP, ATTR_HS_COLOR, PLATFORM_SCHEMA, SUPPORT_BRIGHTNESS,
-    SUPPORT_COLOR, SUPPORT_COLOR_TEMP, Light)
+    SUPPORT_COLOR, SUPPORT_COLOR_TEMP, LightEntity)
 from homeassistant.const import CONF_HOST, CONF_NAME
 import homeassistant.helpers.config_validation as cv
 from homeassistant.util.color import \
@@ -69,7 +69,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     _LOGGER.debug("Init %s %s %s", model, host, entity.unique_id)
 
 
-class KonkeLight(Light):
+class KonkeLight(LightEntity):
     """Konke light device."""
 
     def __init__(self, device, name: str, model: str):
